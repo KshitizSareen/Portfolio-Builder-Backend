@@ -52,3 +52,20 @@ type Experience_Description struct {
 	Description   string `json:"Description"`
 	Experience_id int    `json:"Experience_id"`
 }
+
+type Project struct {
+	ID                   int                   `json:"ID"`
+	Project_Name         string                `json:"Project_Name"`
+	Position             string                `json:"Position"`
+	StartDate            string                `json:"Start_Date"`
+	EndDate              string                `json:"End_Date"`
+	Project_URL          string                `json:"Project_URL"`
+	User_id              int                   `json:"User_ID"`
+	Project_Descriptions []Project_Description `json:"Project_Descriptions"`
+}
+
+type Project_Description struct {
+	ID          int    `json:"ID"`
+	Description string `json:"Description"`
+	Project_id  int    `json:"project_id"`
+}
