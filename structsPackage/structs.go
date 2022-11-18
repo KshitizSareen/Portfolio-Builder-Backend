@@ -69,3 +69,16 @@ type Project_Description struct {
 	Description string `json:"Description"`
 	Project_id  int    `json:"project_id"`
 }
+
+type Skill_Category struct {
+	ID       int    `json:"ID"`
+	Category string `json:"Category"`
+	User_id  int    `json:"User_ID"`
+	Skills []Skill `json:"Skills"`
+}
+
+type Skill struct {
+	ID                int    `json:"ID"`
+	Skill             string `json:"Skill"`
+	Skill_Category_ID int    `json:"Skill_Category_ID"`
+}

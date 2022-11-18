@@ -3,13 +3,11 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"math/rand"
-	"strconv"
-	"time"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/google/uuid"
 )
 
 func HandleLambdaEvent(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
@@ -20,9 +18,8 @@ func HandleLambdaEvent(req events.APIGatewayProxyRequest) (events.APIGatewayProx
 	}
 	defer db.Close()
 	fmt.Println("Success!")
-	rand.Seed(time.Now().UnixNano())
-	randomNumber := rand.Intn(10000000000000)
-	strVar := strconv.Itoa(randomNumber)
+	randomNumber := uuid.New()
+	strVar := randomNumber.String()
 	query, err := db.Query(`INSERT INTO user_keys (user_secret_key) VALUES (MD5("` + strVar + `"));`)
 	if err != nil {
 		panic(err.Error())
