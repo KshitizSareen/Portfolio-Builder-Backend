@@ -35,3 +35,20 @@ type Education struct {
 type UserCode struct {
 	User_Code string `json:"User_Code"`
 }
+
+type Experience struct {
+	ID                      int                      `json:"ID"`
+	Company_Name            string                   `json:"Company_Name"`
+	Position                string                   `json:"Position"`
+	Location                string                   `json:"Location"`
+	StartDate               string                   `json:"Start_Date"`
+	EndDate                 string                   `json:"End_Date"`
+	User_id                 int                      `json:"User_ID"`
+	Experience_Descriptions []Experience_Description `json:"Experience_Descriptions"`
+}
+
+type Experience_Description struct {
+	ID            int    `json:"ID"`
+	Description   string `json:"Description"`
+	Experience_id int    `json:"Experience_id"`
+}
